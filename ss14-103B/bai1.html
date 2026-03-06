@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Danh Sách Sản Phẩm Chợ Tết</h1>
+    <ul id="product-list">
+        <!-- Danh sách sản phẩm-->
+    </ul>
+    <form id="product-form">
+        <input type="text" id="product-name" placeholder="Tên sản phẩm" >
+        <input type="number" id="product-price" placeholder="Giá (VND)">
+        <button type="submit">Thêm sản phẩm</button>
+    </form>
+    <script>
+        const products = [
+            { id: 1, name: "Bánh trưng", price: 150000 },
+            { id: 2, name: "Giò lụa", price: 180000 },
+            { id: 3, name: "Cành đào", price: 500000 },
+            { id: 4, name: "Mứt tết", price: 120000 },
+            { id: 5, name: "Bao lì xì", price: 25000 },
+            { id: 6, name: "Dưa hấu tết", price: 80000 },
+        ];
+        const productList = document.getElementById('product-list');
+        const productForm = document.getElementById('product-form');
+        function renderProducts() {
+            productList.innerHTML = '';
+            products.forEach(product => {
+                const li = document.createElement('li');
+                li.textContent = `${product.name} - ${product.price} VND`;
+                productList.appendChild(li);
+            });
+        }
+        renderProducts();
+    </script>
+</body>
+</html>
